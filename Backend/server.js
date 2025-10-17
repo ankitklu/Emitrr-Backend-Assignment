@@ -1,6 +1,6 @@
 const app = require('./src/app');
 const http = require('http');
-const { initializeSocket } = require('./src/socket/socketHandlers');
+const initializeSocket  = require('./src/socket/socketHandlers');
 
 const server = http.createServer(app);
 const io = initializeSocket(server);
