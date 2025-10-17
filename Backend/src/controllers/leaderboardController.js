@@ -28,7 +28,8 @@ const getPlayerStats = async (req, res) => {
     const { username } = req.params;
     
     const stats = await PlayerStats.findOne({ username })
-      .select('username wins losses draws gamesPlayed lastPlayed');
+          .select('username wins losses draws gamesPlayed lastPlayed');
+
     
     if (!stats) {
       return res.status(404).json({
