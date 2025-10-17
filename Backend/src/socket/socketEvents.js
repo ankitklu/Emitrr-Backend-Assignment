@@ -1,5 +1,6 @@
 const socketIo = require('socket.io');
-const socketEvents = require('./socketEvents');
+// Handlers for socket events (joinQueue, makeMove, disconnect)
+const socketEvents = require('./socketHandlers');
 
 let io;
 

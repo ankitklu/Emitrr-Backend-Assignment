@@ -245,7 +245,7 @@ const handleDisconnect = (socket) => {
       
       gameService.clearDisconnectionTimeout(disconnectedUsername);
       
-      const io = require('./socketHandlers').getIO();
+  const io = require('./socketEvents').getIO();
       io.to(gameId).emit('gameOver', {
         winner,
         isDraw: false,
@@ -266,7 +266,7 @@ const handleDisconnect = (socket) => {
     const opponentSocket = gameService.getPlayerSocket(opponentUsername);
     
     if (opponentSocket) {
-      const io = require('./socketHandlers').getIO();
+  const io = require('./socketEvents').getIO();
       io.to(opponentSocket).emit('opponentDisconnected', {
         message: 'Opponent disconnected. They have 30 seconds to reconnect.'
       });
