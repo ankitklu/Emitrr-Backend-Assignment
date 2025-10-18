@@ -117,8 +117,26 @@ function App() {
   const fetchLeaderboard = async () => {
     try {
       const response = await fetch(`${SOCKET_URL}/api/leaderboard`);
-      const data = await response.json();
-      setLeaderboard(data);
+      const json = await response.json();
+
+      // Backend returns { success: true, data: [...] }
+      if (json && typeof json === 'object') {
+        if (Array.isArray(json.data)) {
+          setLeaderboard(json.data);
+          return;
+        }
+
+        // Sometimes the endpoint might return the array directly
+        if (Array.isArray(json)) {
+          setLeaderboard(json);
+          return;
+        }
+
+        console.warn('Unexpected leaderboard response shape:', json);
+      }
+
+      // Fallback to empty array
+      setLeaderboard([]);
     } catch (error) {
       console.error('Failed to fetch leaderboard:', error);
     }
