@@ -43,7 +43,15 @@ function App() {
     });
 
     newSocket.on('waitingForOpponent', () => {
-      setMessage('Waiting for opponent... (Bot will join in 10 seconds if no player found)');
+      let countdown = 10;
+      setMessage(`Waiting for opponent... (Bot will join in ${countdown} seconds if no player found)`);
+      const interval = setInterval(() => {
+        countdown--;
+        setMessage(`Waiting for opponent... (Bot will join in ${countdown} seconds if no player found)`);
+        if (countdown <= 0) {
+          clearInterval(interval);
+        }
+      }, 1000);
     });
 
     newSocket.on('gameStart', (data: any) => {
