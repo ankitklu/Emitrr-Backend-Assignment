@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import io, { Socket } from 'socket.io-client';
 import './App.css';
 
-const ROWS = 6;
-const COLS = 7;
 const SOCKET_URL = import.meta.env.VITE_SOCKET_URL;
 
 interface LeaderboardEntry {
