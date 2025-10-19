@@ -3,6 +3,7 @@ import io, { Socket } from 'socket.io-client';
 import './App.css';
 
 const SOCKET_URL = import.meta.env.VITE_SOCKET_URL;
+const API_URL = import.meta.env.VITE_API_URL || SOCKET_URL;
 
 interface LeaderboardEntry {
   username: string;
@@ -122,7 +123,10 @@ function App() {
 
   const fetchLeaderboard = async () => {
     try {
-      const response = await fetch(`${SOCKET_URL}/api/leaderboard`);
+      const response = await fetch(`${API_URL}/api/leaderboard`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
       const json = await response.json();
 
       // Backend returns { success: true, data: [...] }
