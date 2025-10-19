@@ -33,7 +33,7 @@ Frontend/
     ├── App.tsx                                                                                 
 
 
-<img src="https://firebasestorage.googleapis.com/v0/b/whatsapp-clone-1985c.appspot.com/o/emitrr.png?alt=media&token=dcf7e406-3667-40fe-8db4-b1571a3a4e8d" alt="LearnYard Logo" width="60"/>
+<img src="https://firebasestorage.googleapis.com/v0/b/whatsapp-clone-1985c.appspot.com/o/emitrr.png?alt=media&token=dcf7e406-3667-40fe-8db4-b1571a3a4e8d" alt="LearnYard Logo" width="1500"/>
 
 
 # 4 in a Row - Real-Time Multiplayer Game
