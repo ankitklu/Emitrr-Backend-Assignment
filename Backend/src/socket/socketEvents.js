@@ -11,7 +11,8 @@ const initializeSocket = (server) => {
   io = socketIo(server, {
     cors: {
       origin: FRONTEND_URL,
-      methods: ["GET", "POST"]
+      methods: ["GET", "POST"],
+      credentials: true
     }
   });
 
