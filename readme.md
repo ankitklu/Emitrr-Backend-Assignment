@@ -2,93 +2,38 @@
 https://ankit-emitrr-backend-assignment-klu.vercel.app/
 
 ## Backend Structure
-Backend/
-├── src/
-│   ├── config/
-│   │   └── database.js
-│   ├── models/
-│   │   ├── Game.js
-│   │   └── PlayerStats.js
-│   ├── controllers/
-│   │   ├── gameController.js
-│   │   └── leaderboardController.js
-│   ├── services/
-│   │   ├── botService.js
-│   │   ├── gameService.js
-│   │   └── matchmakingService.js
-│   ├── socket/
-│   │   ├── socketHandlers.js
-│   │   └── socketEvents.js
-│   ├── routes/
-│   │   └── api.js
-│   ├── utils/
-│   │   └── gameLogic.js
-│   └── app.js
-├── server.js
-└── package.json
+Backend/                                                                                 
+├── src/                                                                                  
+│   ├── config/                                                                                  
+│   │   └── database.js                                                               
+│   ├── models/                                                                                  
+│   │   ├── Game.js                                                                        
+│   │   └── PlayerStats.js                                                                       
+│   ├── controllers/                                                                  
+│   │   ├── gameController.js                                                                    
+│   │   └── leaderboardController.js                                                            
+│   ├── services/                                                                                
+│   │   ├── botService.js                                                                        
+│   │   ├── gameService.js                                                                       
+│   │   └── matchmakingService.js                                                                
+│   ├── socket/                                                                                  
+│   │   ├── socketHandlers.js                                                                    
+│   │   └── socketEvents.js                                                                     
+│   ├── routes/                                                                                  
+│   │   └── api.js                                                                               
+│   ├── utils/                                                                                  
+│   │   └── gameLogic.js                                                                         
+│   └── app.js                                                                                  
+├── server.js                                                                                  
+└── package.json                                                                                
 
 ## Backend Structure
-Frontend/
-├── src/
-    ├── App.tsx 
+Frontend/                                                                                  
+├── src/                                                                                  
+    ├── App.tsx                                                                                 
 
 
-## Overall Data Flow
-┌─────────────────────────────────────────────────────────────┐
-│                         Frontend                            │
-│                    (React + TypeScript)                     │
-└────────────┬────────────────────────────────┬───────────────┘
-             │                                │
-             │ Socket.IO Events               │ REST API
-             │                                │
-┌────────────▼────────────────────────────────▼───────────────┐
-│                        server.js                            │
-│                     (Entry Point)                           │
-└────────────┬────────────────────────────────┬───────────────┘
-             │                                │
-             │                                │
-      ┌──────▼──────┐                  ┌──────▼──────┐
-      │   Socket    │                  │   Express   │
-      │  Handlers   │                  │     App     │
-      └──────┬──────┘                  └──────┬──────┘
-             │                                │
-             │                                │
-      ┌──────▼──────────┐              ┌──────▼──────────┐
-      │ Socket Events   │              │     Routes      │
-      │   Handlers      │              │   (REST API)    │
-      └──────┬──────────┘              └──────┬──────────┘
-             │                                │
-             │                                │
-             │                         ┌──────▼──────────┐
-             │                         │  Controllers    │
-             │                         │ - Game          │
-             │                         │ - Leaderboard   │
-             │                         └──────┬──────────┘
-             │                                │
-             └────────────┬───────────────────┘
-                          │
-                   ┌──────▼──────────┐
-                   │    Services     │
-                   │ - Game          │
-                   │ - Matchmaking   │
-                   │ - Bot AI        │
-                   └──────┬──────────┘
-                          │
-                   ┌──────▼──────────┐
-                   │     Utils       │
-                   │  - Game Logic   │
-                   └──────┬──────────┘
-                          │
-                   ┌──────▼──────────┐
-                   │     Models      │
-                   │ - Game          │
-                   │ - PlayerStats   │
-                   └──────┬──────────┘
-                          │
-                   ┌──────▼──────────┐
-                   │    MongoDB      │
-                   │   Database      │
-                   └─────────────────┘
+<img src="https://firebasestorage.googleapis.com/v0/b/whatsapp-clone-1985c.appspot.com/o/emitrr.png?alt=media&token=dcf7e406-3667-40fe-8db4-b1571a3a4e8d" alt="LearnYard Logo" width="60"/>
 
 
 # 4 in a Row - Real-Time Multiplayer Game
