@@ -123,7 +123,9 @@ function App() {
 
   const fetchLeaderboard = async () => {
     try {
-      const response = await fetch(`${API_URL}/api/leaderboard`);
+      const url = `${API_URL}/api/leaderboard`;
+      console.log('Fetching leaderboard from:', url);
+      const response = await fetch(url);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
