@@ -7,12 +7,12 @@ let io;
 
 
 const initializeSocket = (server) => {
-  let FRONTEND_URL = process.env.FRONTEND_URL;
   io = socketIo(server, {
     cors: {
-      origin: FRONTEND_URL,
+      origin: [process.env.FRONTEND_URL ],
       methods: ["GET", "POST"],
-      credentials: true
+      credentials: true,
+      allowedHeaders: ["Content-Type"]
     }
   });
 
