@@ -1,3 +1,4 @@
+require('dotenv').config();
 const socketIo = require('socket.io');
 // Handlers for socket events (joinQueue, makeMove, disconnect)
 const socketEvents = require('./socketHandlers');
@@ -6,9 +7,10 @@ let io;
 
 
 const initializeSocket = (server) => {
+  let FRONTEND_URL = process.env.FRONTEND_URL;
   io = socketIo(server, {
     cors: {
-      origin: "http://localhost:5173",
+      origin: FRONTEND_URL,
       methods: ["GET", "POST"]
     }
   });

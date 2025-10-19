@@ -4,7 +4,7 @@ import './App.css';
 
 const ROWS = 6;
 const COLS = 7;
-const SOCKET_URL = 'http://localhost:3001';
+const SOCKET_URL = import.meta.env.VITE_SOCKET_URL;
 
 interface LeaderboardEntry {
   username: string;
