@@ -109,7 +109,16 @@ function App() {
     });
 
     newSocket.on('opponentDisconnected', (data: { message: string }) => {
-      setMessage(data.message);
+      let countdown = 30;
+      setMessage(`${data.message} (Game will end in ${countdown} seconds)`);
+      const interval = setInterval(() => {
+        countdown--;
+        setMessage(`${data.message} (Game will end in ${countdown} seconds)`);
+        if (countdown <= 0) {
+          clearInterval(interval);
+          resetGame();
+        }
+      }, 1000);
     });
 
     newSocket.on('error', (data: { message: string }) => {
@@ -316,6 +325,21 @@ function App() {
           </table>
         </div>
       )}
+
+      <footer className="footer">
+        <p>If you love this project, let's move forward because repositories never lie!! Thanks for your time</p>
+        <div className="contact-info">
+          <p>Ankit Kumar Mishra</p>
+          <p>Roll No: 2200032823</p>
+          <p>Email: <a href="mailto:2200032823cseh@gmail.com">2200032823cseh@gmail.com</a></p>
+          <p>Phone: <a href="tel:+916371219061">+91 6371219061</a></p>
+          <div className="social-links">
+            <a href="https://www.linkedin.com/in/ankitkumarmishra060702/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com/ankitklu" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://tinyurl.com/yf7tp8cu" target="_blank" rel="noopener noreferrer">Resume</a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
